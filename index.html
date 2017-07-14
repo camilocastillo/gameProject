@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+      
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet"> 
+    </head>
+    <body>
+        
+        <div id ="info" class="screen">
+            <br>
+            <p>Un juego de HASKELL</p>
+            <img src="" alt="">
+            <div class="datos">
+                <h1>Super Mario Bros</h1>
+                <button class="btn-start" onclick="iniciarJuego()">Iniciar</button>
+                <p>
+                    <h3>Instruicciones</h3>
+                    <p>Mover personaje fechas</p>
+                    <p>Saltar flecha hacia arriba</p>
+                </p>
+            </div>
+        </div>
+
+        <div id ="win" class="screen">
+            <p>Un juego de HASKELL</p>
+            <img src="" alt="">
+            <div class="datos">
+                <h1>GANASTE !!</h1>
+                <button class="btn-start" onclick="iniciarJuego()">JUGAR DE NUEVO</button>
+                <p>
+                    <h3>Puntaje</h3>
+                    <p id="score"></p>
+                </p>
+            </div>
+        </div>
+
+        <div id ="lose" class="screen">
+            <p>Un juego de HASKELL</p>
+            <img src="" alt="">
+            <div class="datos">
+                <h1>PERDISTE !!</h1>
+                <button class="btn-start" onclick="iniciarJuego()">JUGAR DE NUEVO</button>
+                <p>
+                    <h3>Puntaje</h3>
+                    <p id="score"></p>
+                </p>
+            </div>
+        </div>
+
+        <div id = "game">
+        </div>
+
+        <script src = "js/preloadjs-0.1.0.min.js"></script> 
+        <script src = "js/kinetic-v4.3.3.min.js"></script>
+        <script src = "js/Heroe.js"></script>
+        <script src = "js/enemigo.js"></script>
+        <script src = "js/plataforma.js"></script>
+        <script src = "js/piso.js"></script>
+        <script src = "js/game.js"></script>
+        <script src = "js/moneda.js"></script>
+        <script src = "js/puerta.js"></script>
+        <script src = "js/main.js"></script>
+        
+        <script>
+            var preloader;
+            var imag = ['img/heroe.png','img/enemy.jpg','img/plataforma.png'];
+            window.addEventListener('load',function(){
+                preloader = new PreloadJS();
+                preloader.onProgress = progresoCarga;
+                cargar();
+             });
+
+             function cargar(){
+                 while(imag.length > 0){
+                     var url = imag.shift();
+                     preloader.loadFile(url);
+                 }
+             }    
+              function progresoCarga(){
+                if(preloader.progress == 1){
+                    document.querySelector('#info').style.display= 'block';
+                }      
+             } 
+
+             function iniciarJuego(){
+                 document.querySelector('#info').style.display= 'none';
+                 document.querySelector('#win').style.display= 'none';
+                 document.querySelector('#lose').style.display= 'none';
+                 //document.querySelector('#game').style.display= 'block';
+                 nivelUno();   
+             }  
+        </script>
+    </body>
+</html>
