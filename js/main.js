@@ -126,6 +126,7 @@ function nivelUno(){
     if(b) return;
     b = true;
     juego.llave = true;
+    juego.puntaje = 0;
     fondo = new Kinetic.Layer();
     console.log(imgEn);
     //Enemigos 
@@ -224,7 +225,6 @@ function nivelDos(){
     fondo.add(personaje);
     fondo.add(grupoEnemi);
     fondo.add(puntaje);
-    console.log(personaje);
     personaje.start();
     stage.add(fondo);
     intv = setInterval(frameLoop,1000/20);
@@ -340,7 +340,12 @@ function detectarColPlataforma(){
                             plataform.remove();
                             juego.puntaje += 5;
                     }else{
-                            console.log("fin del juego");
+                        grupoEnemi.removeChildren();
+                        document.querySelector('#lose').style.display= 'block';
+                        document.querySelector('#game').style.display= 'none'; 
+                        document.querySelector('#score').innerHTML = juego.puntaje;
+                        window.clearInterval(intv);
+                        b = false;
                     }
                 }
                 else if(plataform instanceof Plataforma && personaje.getY() < plataform.getY() && personaje.vy >= 0){
@@ -360,7 +365,12 @@ function detectarColPlataforma(){
                         nivelDos();
                     }
                     else if(juego.nivel == 2) {
-                        console.log("Gano"); 
+                        grupoEnemi.removeChildren();
+                        document.querySelector('#win').style.display= 'block';
+                        document.querySelector('#game').style.display= 'none'; 
+                        document.querySelector('#score').innerHTML = juego.puntaje;
+                        window.clearInterval(intv);
+                        b = false;
                     }
                 }
                        

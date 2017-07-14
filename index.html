@@ -25,6 +25,7 @@
         </div>
 
         <div id ="win" class="screen">
+            <br>
             <p>Un juego de HASKELL</p>
             <img src="" alt="">
             <div class="datos">
@@ -32,12 +33,13 @@
                 <button class="btn-start" onclick="iniciarJuego()">JUGAR DE NUEVO</button>
                 <p>
                     <h3>Puntaje</h3>
-                    <p id="score"></p>
+                    <p id = "score"></p>
                 </p>
             </div>
         </div>
 
         <div id ="lose" class="screen">
+            <br>
             <p>Un juego de HASKELL</p>
             <img src="" alt="">
             <div class="datos">
@@ -45,7 +47,7 @@
                 <button class="btn-start" onclick="iniciarJuego()">JUGAR DE NUEVO</button>
                 <p>
                     <h3>Puntaje</h3>
-                    <p id="score"></p>
+                    <p id = "score"></p>
                 </p>
             </div>
         </div>
@@ -89,7 +91,7 @@
                  document.querySelector('#info').style.display= 'none';
                  document.querySelector('#win').style.display= 'none';
                  document.querySelector('#lose').style.display= 'none';
-                 //document.querySelector('#game').style.display= 'block';
+                 document.querySelector('#game').style.display= 'block';
                  nivelUno();   
              }  
         </script>
