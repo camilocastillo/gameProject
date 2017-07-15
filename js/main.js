@@ -343,7 +343,7 @@ function detectarColPlataforma(){
                         grupoEnemi.removeChildren();
                         document.querySelector('#lose').style.display= 'block';
                         document.querySelector('#game').style.display= 'none'; 
-                        document.querySelector('#score').innerHTML = juego.puntaje;
+                        document.querySelector('#scorelose').innerHTML = juego.puntaje;
                         window.clearInterval(intv);
                         b = false;
                     }
@@ -368,7 +368,7 @@ function detectarColPlataforma(){
                         grupoEnemi.removeChildren();
                         document.querySelector('#win').style.display= 'block';
                         document.querySelector('#game').style.display= 'none'; 
-                        document.querySelector('#score').innerHTML = juego.puntaje;
+                        document.querySelector('#scorewin').innerHTML = juego.puntaje;
                         window.clearInterval(intv);
                         b = false;
                     }
