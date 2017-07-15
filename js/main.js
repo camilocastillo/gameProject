@@ -178,7 +178,7 @@ function nivelUno(){
 }
 
 function nivelDos(){
-    juego.llave = false;
+    juego.llave = true;
     fondo = new Kinetic.Layer();
     console.log("SIguiente nivel...");
     //Enemigos 
@@ -365,11 +365,12 @@ function detectarColPlataforma(){
                         nivelDos();
                     }
                     else if(juego.nivel == 2) {
-                        grupoEnemi.removeChildren();
+                        grupoEnemi.removeChildren();       
                         document.querySelector('#win').style.display= 'block';
                         document.querySelector('#game').style.display= 'none'; 
                         document.querySelector('#scorewin').innerHTML = juego.puntaje;
                         window.clearInterval(intv);
+              
                         b = false;
                     }
                 }
